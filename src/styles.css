@@ -1,196 +1,224 @@
-
-/* app colour brand*/
+/* Main Theme Colours / Variables. These can be reused with var(--name) */
 :root {
-    --dark-bg: #131B25;
-    --light-bg: #E4EAF1;
-    --dark-text: #131B25;
-    --light-text: #E4EAF1;
-    --brand: #4f8cff;
-    --dark-panel: #E4EAF1;
-    --light-panel:#131B25;
-    --dark-resume-panel: #dbe7f3;
-    --light-resume-panel: #1c2f47;
-    --dark-highlight-panel: #1dd1a1;
-    --light-highlight-panel: #1c6955;
+    --dark-bg: #131B25;                   /* dark background */
+    --light-bg: #E4EAF1;                  /* light background */
+    --dark-text: #131B25;                 /* dark text colour */
+    --light-text: #E4EAF1;                /* light text colour */
+    --brand: #4f8cff;                     /* main accent colour (blue) */
+
+    --dark-panel: #E4EAF1;                /* panel colour for light mode */
+    --light-panel:#131B25;                /* panel colour for dark mode */
+
+    --dark-resume-panel: #dbe7f3;         /* right-side resume bg in light theme */
+    --light-resume-panel: #1c2f47;        /* alt dark panel colour */
+
+    --dark-highlight-panel: #1dd1a1;      /* green accent */
+    --light-highlight-panel: #1c6955;     /* darker green accent */
 }
 
-/* app default margin and padding*/
+/* Reset margin and padding for all elements */
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Default section style for pages */
 section {
   min-height: 65vh;
-  padding: 10rem 9% 2rem;
+  padding: 6rem 9% 2rem;
   align-items: center;
   justify-content: center;
 }
 
+/* Set main font for the whole site */
 html, body {
-    font-family: 'Roboto', sans-serif;}
+    font-family: 'Roboto', sans-serif;
+}
 
-/* app shell (attach theme to same element) */
+/* App Wrapper + Theme. This holds the whole app and switches light/dark */
 .app-shell {
   width: 100vw;
   min-height: 100vh;
-  transition: background-color 0.5s, color 0.5s;
+  transition: background-color 0.5s, color 0.5s; 
 }
 
+/* Light theme */
 .app-shell.light {
   background: var(--dark-bg);
   color: var(--light-text);
 }
 
+/* Dark theme */
 .app-shell.dark {
   background: var(--light-bg);
   color: var(--dark-text);
 }
 
-/* navbar styles */
+/* Navbar + Footer. Top bar and bottom bar style */
 .navbar, .footer {
-    display: flex;  /* this puts all elements in row*/
-    align-items: center; /* vertically center items*/
-    justify-content: space-between; /* space between items*/
-    padding: 12px 7%; /* top-bottom 12px, left-right 7%*/
-    /* background-color: var(--dark-bg);*/ /* dark background*/
-    /* color: var(--light-text);*/ /* light text color*/
-    /* position: fixed;*/ /* fix navbar to top*/
-    width: 100%; /* full width*/
-    top: 0; /* stick to top*/
-    left: 0; /* align to left*/
-    z-index: 10; /* ensure navbar is on top*/
-    height: 130px; /* navbar and footer height*/
+    display: flex;               
+    align-items: center;         
+    justify-content: space-between; 
+    padding: 12px 7%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    height: 130px;               
 }
 
+/* small drop shadow under navbar */
 .navbar {
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5); /* subtle shadow*/
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
 }
 
+/* Logo image in the header */
 .logo {
-    height: 60px; /* logo height*/
-    cursor: pointer; /* pointer cursor on hover*/
+    height: 60px;
+    cursor: pointer;
 }
 
+/* Make logo grow a bit when hovered */
 .logo:hover {
-    transform: scale(1.2); /* slightly larger on hover*/
+    transform: scale(1.2);
 }
 
+/* Links in the navbar (Home, About, etc.) */
 .nav-links {
-    flex: 1; /* take up remaining space*/
-    display: flex; /* flexbox for links*/
-    justify-content: center; /* center links*/
-    gap: 60px; /* space between links*/
+    flex: 1;
+    display: flex;
+    justify-content: center;  
+    gap: 60px;                
 }
 
 .nav-links a {
-    text-decoration: none; /* remove underline*/
-    color: var(--light-text); /* inherit text color*/
-    font-weight: 500; /* medium font weight*/
-    transition: color 0.3s; /* smooth color transition*/
+    text-decoration: none;
+    color: var(--light-text);
+    font-weight: 500;
+    transition: color 0.3s;
 }
 
+/* Hover effect on nav links */
 .nav-links a:hover, .dark .nav-links a:hover {
-    color: var(--brand); /* change color on hover*/
-    transform: scale(1.05); /* slightly larger when hover*/
-
+    color: var(--brand);
+    transform: scale(1.05);
 }
 
+/* Search bar on the right side of header */
 .search-box {
-    display: flex; /* flexbox for search*/
-    align-items: center; /* vertically center items*/
-    background: var(--dark-panel); /* panel background*/
-    border-radius: 20px; /* rounded corners*/
-    padding: 10px 60px; /* padding*/
+    display: flex;
+    align-items: center;
+    background: var(--dark-panel);
+    border-radius: 20px;
+    padding: 10px 60px;
 }
 
+/* Input inside the search box */
 .search-box input {
-    border: none; /* remove border*/
-    background: transparent; /* transparent background*/
-    outline: none; /* remove outline*/
-    color: var(--dark-text); /* inherit text color*/
-    font-size: 14px; /* font size*/
-    width: 120px; /* input width*/
+    border: none;
+    background: transparent;
+    outline: none;
+    color: var(--dark-text);
+    font-size: 14px;
+    width: 120px;
 }
 
+/* Search icon */
 .search_icon {
-    height: 15px; /* icon height*/
-    cursor: pointer; /* pointer cursor on hover*/
-    margin-left: 6px; /* space from input*/
+    height: 15px;
+    cursor: pointer;
+    margin-left: 6px;
 }
 
+/* Fun rotate on hover */
 .search_icon:hover {
-    transform: rotate(20deg); /* rotate on hover*/
+    transform: rotate(20deg);
 }
 
+/* Dark theme version: make text light */
 .dark .search-box input {
-    color: var(--light-text); /* dark mode text color*/
+    color: var(--light-text);
 }
 
+/* Theme toggle icon (sun/moon) */
 .toggle_icon {
-    margin-left: 20px; /* space from search box*/
-    height: 25px;  /*icon height*/
-    cursor: pointer; /* pointer cursor on hover*/   
-    transition: transform 0.3s ease; /* smooth rotation*/
+    margin-left: 20px;
+    height: 25px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
 }
 
+/* Spin a bit when hovered */
 .toggle_icon:hover {
-    transform: rotate(50deg); /* rotate on hover*/
+    transform: rotate(50deg);
 }
 
+/* Dark theme nav links use dark text colour instead of light */
 .dark .nav-links a {
-    color: var(--dark-text); /* dark mode link color*/
+    color: var(--dark-text);
 }
 
+/* Dark mode version of search box background */
 .dark .search-box {
-    background: var(--light-panel); /* dark mode panel background*/
+    background: var(--light-panel);
 }
 
+/* Footer */
 .footer {
     display: flex;
-    justify-content: space-around;  /* evenly space columns */
-    align-items: center;            /* vertically center */
-    color: var(--light-text); /* light text color*/
-    padding: 100px 20%; /* top-bottom 40px, left-right 7%*/
-    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.5); /* subtle shadow*/
+    justify-content: space-around;     
+    align-items: center;
+    color: var(--light-text);
+    padding: 100px 20%;
+    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.5); 
+    text-decoration: none;
 }
 
-.footer span:hover {
-    color: var(--brand); /* change color on hover*/
-    transform: scale(1.05); /* slightly larger when hover*/
+/* Hover effect for footer links/items */
+.footer span:hover, .footer-link:hover, .footer a:hover {
+    color: var(--brand);
+    transform: scale(1.05);
 }
 
+/* Footer section titles */
 .footer h4 {
-    font-size: 18px; /* heading font size*/
-    padding-top: 10px; /* spacing above*/
-    padding-bottom: 10px; /* spacing below*/
+    font-size: 18px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
+/* Each footer column is stacked and centered */
 .footer .col {
-  display: flex;              /* make it a flex container */
-  flex-direction: column;     /* stack items vertically */
-  align-items: center;        /* center horizontally */
-  justify-content: center;    /* center vertically */
-  text-align: center;         /* center text */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
-.footer span {
-    list-style: none; /* remove bullet points*/
-    padding: 5px 0; /* vertical padding*/
-    align-items: center; /* center items*/
-    font-size: 12px; /* font size*/
+/* Footer text items */
+.footer span, .footer-link, .footer a{
+    list-style: none;
+    padding: 5px 0;
+    align-items: center;
+    font-size: 12px;
     display: flex;
+    text-decoration: none;
+    color: var(--light-text);
 }
 
+/* Dark theme footer text colour swap */
 .dark .footer {
-    color: var(--dark-text); /* dark mode text color*/
+    color: var(--dark-text);
 }
 
+/* Hero + About Sections (Home / About pages) */
 .hero, .about {
-    padding: 12px 7%; /* top-bottom 12px, left-right 7%*/
+    padding: 15px 7%;
 }
 
+/* Animated rainbow text effect for job titles on the home page */
 .color-change {
     background: linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb, #1dd1a1, #5f27cd);
     background-size: 400%;
@@ -200,49 +228,57 @@ html, body {
     font-weight: bold;
 }
 
+/* Animation for the rainbow text */
 @keyframes colorShift {
     0% {background-position: 0% 50%;}
     50% {background-position: 100% 50%;}
     100% {background-position: 0% 50%;}
 }
 
+/* Columns in the hero section */
 .hero-col {
-    display: flex; /* flexbox for layout*/
-    flex-direction: column; /* stack items vertically*/
-    justify-content: center; /* center content*/
-    align-items: center; /* center items*/
-    margin: 20px 0; /* spacing above and below*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
 }
 
+/* Headings and intro text in the hero section */
 .hero-col h2, .hero-col p {
-    font-size: 36px; /* heading font size*/
-    margin-bottom: 20px; /* spacing below*/
-    padding: 5px 0; /* top-bottom 5px, left-right 5%*/
+    font-size: 36px;
+    margin-bottom: 20px;
+    padding: 5px 0;
     font-family: 'Trebuchet MS', sans-serif;
     color: var(--light-text);
 }
 
+/* Center hero headline text */
 .hero-details{
   text-align: center;
 }
 
+/* Slight zoom on hover */
 .hero-col h2:hover, .hero-col p:hover {
-    transform: scale(1.02); /* slightly larger on hover*/
+    transform: scale(1.02);
 }
 
+/* Dark theme changes font colour */
 .dark .hero-col h2, .dark .hero-col p {
-    color: var(--dark-text); /* dark mode text color*/
+    color: var(--dark-text);
 }
 
 .dark .hero-col h2:hover, .dark .hero-col p:hover {
-    transform: scale(1.02); /* slightly larger on hover*/
+    transform: scale(1.02);
 }
 
+/* Body text under hero title */
 .hero-col p {
-    font-size: 18px; /* paragraph font size*/
-    line-height: 1.6; /* line height for readability*/
+    font-size: 18px;
+    line-height: 1.6;
 }
 
+/* Social icons row under intro */
 .hero-socials a i{
   display: inline-flex;
   justify-content: center;
@@ -258,65 +294,75 @@ html, body {
   margin: 30px 15px 30px 0;
 }
 
+/* Glow/colour change when you hover social icons */
 .hero-socials a i:hover{
   background: var(--light-highlight-panel);
   color: var(--dark-highlight-panel);
   box-shadow: 0 0 20px var(--light-highlight-panel);
 }
 
+/* Generic container layout */
 .container {
-    display: column; /* column for layout*/
-    align-items: center; /* vertically center items*/
-    justify-content: space-between; /* space between items*/
-    gap: 20px; /* space between sections*/
+    display: column; 
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
 }
 
+/* Profile image */
 .hero-image {
-    width: 100px; /* full width*/
-    border-radius: 500px; /* rounded corners*/
-    margin-top: 20px; /* spacing above*/
-    margin-bottom: 20px; /* spacing below*/
+    width: 100px;
+    border-radius: 500px; 
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
+/* Hover effect on profile image and CV button */
 .hero-image:hover, .hero-btn-contact:hover {
-    transform: scale(1.02); /* slightly larger on hover*/
-    box-shadow: 0 0 30px rgba(255, 255, 255, 0.8); /* enhanced shadow on hover*/
+    transform: scale(1.02);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
 }
 
+/* "Download CV" button style */
 .hero-btn-contact {
-    padding: 12px 30px; /* padding*/
-    font-size: 16px; /* font size*/
-    border: none; /* remove border*/
-    border-radius: 25px; /* rounded corners*/
-    background-color: var(--light-bg); /* light bg color*/
-    color: var(--dark-text); /* dark text*/
-    cursor: pointer; /* pointer cursor on hover*/
-    transition: background-color 0.3s, transform 0.3s; /* smooth transitions*/
+    padding: 12px 30px;
+    font-size: 16px;
+    border: none;
+    border-radius: 25px;
+    background-color: var(--light-bg);
+    color: var(--dark-text);
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
     align-self: center;
 }
 
+/* Dark theme version of the CV button */
 .dark .hero-btn-contact {
-    background-color: var(--dark-bg); /* dark bg color*/
-    color: var(--light-text); /* light text*/
-    transition: background-color 0.3s, transform 0.3s; /* smooth transitions*/
+    background-color: var(--dark-bg);
+    color: var(--light-text);
+    transition: background-color 0.3s, transform 0.3s;
 }
 
+/* Dark theme alt hover for profile image */
 .dark .hero-image:hover {
-    transform: scale(1.02); /* slightly larger on hover*/
-    box-shadow: 0 0 30px rgba(75, 74, 74, 0.8); /* enhanced shadow on hover*/
+    transform: scale(1.02);
+    box-shadow: 0 0 30px rgba(75, 74, 74, 0.8);
 }
 
-/* About Me*/
+/* About Page */
+
+/* Outer wrapper for About page content */
 .about-inner {
-    display: column; /* flexbox for layout*/
-    flex-direction: row; /* row layout*/
-    align-items: center; /* vertically center items*/
-    justify-content: space-between; /* space between items*/
-    gap: 40px; /* space between sections*/
+    display: column; 
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
 }
 
+/* One column in About (text or image) */
 .about-col {
-    margin-bottom: 20px; /* spacing below*/
+    margin-bottom: 20px;
     color: var(--light-text);
     align-items: center;
 }
@@ -326,82 +372,123 @@ html, body {
     text-align: center;
 }
 
+/* "About Me" heading text */
 .about h1 {
-    font-size: 2.5rem; /* heading font size*/
-    margin-bottom: 5px; /* spacing below*/
+    font-size: 2.5rem;
+    margin-bottom: 5px;
     font-family: 'Trebuchet MS', sans-serif;
     text-align: center;
+    color: var(--dark-highlight-panel);
 }
 
+/* Layout rows in the About page */
 .about-row {
-    display: flex; /* flexbox for layout*/
-    flex-wrap: wrap; /* wrap items*/
-    align-items: center; /* vertically center items*/
-    justify-content: center; /* center items*/
-    margin-bottom: 5px; /* spacing below*/
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px;
     text-align: left;
-    padding: 12px 7%; /* top-bottom 12px, left-right 7%*/
+    padding: 12px 7%;
 }
 
+/* Dark mode text colour for About section text */
 .dark .about-col {
   color: var(--dark-text);
 }
 
+/* Make columns responsive */
 .about-col {
-    flex: 1; /* take up equal space*/
-    min-width: 300px; /* minimum width*/
-    padding: 5px; /* padding*/
+    flex: 1;
+    min-width: 300px;
+    padding: 5px;
 }
 
+/* Paragraph text in About */
 .about-col p {
-    line-height: 1.6; /* line height for readability*/
-    margin-bottom: 15px; /* spacing below*/
+    line-height: 1.6;
+    margin-bottom: 15px;
 }
 
+/* Image on the About page */
 .about-image {
     display: block;
     margin: 0 auto;
     width: 100%;
     max-width: 300px;
-    border-radius: 10px; /* rounded corners*/
+    border-radius: 10px;
     object-fit: cover;
 }
 
+/* About image hover glow */
+.about-image:hover{
+    transform: scale(1.02);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+}
+
+/* Social icons in About section (smaller than hero) */
+.about-socials a i{
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  border: 2px solid var(--dark-highlight-panel);
+  border-radius: 80px;
+  font-size: 20px;
+  color: var(--dark-highlight-panel);
+  text-decoration: none;
+  margin: 30px 15px 30px 0;
+}
+
+/* Hover style for About socials */
+.about-socials a i:hover{
+  background: var(--light-highlight-panel);
+  color: var(--dark-highlight-panel);
+  box-shadow: 0 0 25px var(--light-highlight-panel);
+  transform: scale(1.02);
+}
+
+/* Skills section layout */
 .skills {
   display: flex;
   flex-direction: column;
   gap: 12px;
   width: 100%;
   max-width: 500px;
-  margin: 0; /* aligns perfectly with text */
+  margin: 0;
 }
 
 .skill {
   display: grid;
-  grid-template-columns: 175px 1fr; /* fixed width for text, rest for bar */
+  grid-template-columns: 175px 1fr; 
   align-items: center;
   gap: 10px;
 }
 
+/* Resume interest row */
 .resume-row-interest{
   display: flex;
   justify-content: space-between;
 }
 
 .skill:hover, .resume-row-interest span:hover{
-  transform: scale(1.02); /* slightly larger on hover*/
+  transform: scale(1.02);
 }
 
+/* Hover effect for interest bubbles */
 .resume-row-interest span{
   transition: background-color 0.5s, color 0.5s;
   margin-right: 50px;
 }
 
 .resume-row-interest span:hover{
-  transform: scale(1.3); /* slightly larger on hover*/
-  box-shadow: 0 0 30px rgba(226, 225, 225, 0.8); /* enhanced shadow on hover*/
+  transform: scale(1.3);
+  box-shadow: 0 0 30px rgba(226, 225, 225, 0.8);
 }
 
+/* Skill label text */
 .skill-name {
   text-align: left;
   font-size: 14px;
@@ -409,53 +496,57 @@ html, body {
   white-space: nowrap;
 }
 
+/* Animation for gradient progress bars */
 @keyframes gradientFlow {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
-/* Make sure the left alignment matches your text paragraphs */
+/* Make sure skill bars/text line up nicely with the about text */
 .about-col p,.skills {
   text-align: left;
   margin-left: 0;
   padding-left: 0;
 }
 
-/* ========== Resume ========== */
+/* Resume Page Layout */
+
+/* Space around resume section */
 .resume {
-  padding: 40px 0;
+  padding: 60px 0;
 }
 
-/* Two columns */
+/* Two-column layout for resume: left = sidebar, right = main content  */
 .resume-inner {
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 300px minmax(0, 1fr);   /* left fixed, right fluid */
+  grid-template-columns: 300px minmax(0, 1fr); 
   gap: 50px;
   border-radius: 14px;
-  overflow: hidden;                   /* round the column corners together */
-  /*box-shadow: 0 12px 30px rgba(0,0,0,0.25);*/
+  overflow: hidden;
 }
 
+/* Profile image in resume sidebar */
 .resume-row-image .hero-image {
   display: block;
   margin: 0 auto;
-  width: 140px;
-  height: 140px;
+  width: 120px;
+  height: 120px;
   object-fit: cover;
   border-radius: 50%;
   border: 4px solid rgba(255,255,255,0.15);
 }
 
-/* Name + title */
+/* Name in resume sidebar */
 .resume-row-name h3 {
   margin: 10px 0 0;
   text-align: center;
   letter-spacing: 1px;
 }
 
+/* Job title in resume sidebar */
 .resume-row-name h4 {
   margin: 4px 0 0;
   text-align: center;
@@ -463,7 +554,7 @@ html, body {
   opacity: 0.85;
 }
 
-/* Sidebar section heading */
+/* Sidebar small headings like Contact Info / Education */
 .section-header{
   font-size: 16px;
   letter-spacing: .8px;
@@ -472,22 +563,24 @@ html, body {
   margin-top: 30px;
 }
 
+/* Little coloured bar under the heading */
 .section-header::after {
   content: "";
   display: block;
   height: 3px;
   width: 48px;
-  background: #42a5ff;               /* accent line under heading */
+  background: #42a5ff;
   border-radius: 3px;
   margin-top: 6px;
 }
 
+/* "Year" text in education section */
 .school-details .school-details-year{
   font-size: 14px;
   font-weight: bold;
 }
 
-/* Sidebar lists */
+/* Sidebar list text styles */
 .resume-row-contact span,
 .resume-row-language span,
 .school-details span {
@@ -501,15 +594,15 @@ html, body {
   margin-bottom: 12px; 
 }
 
-/* Right light panel */
+/* Right/main side of resume */
 .resume-right {
-  background: var(--dark-resume-panel);      /* #E4EAF1 (your light) */
+  background: var(--dark-resume-panel);
   color: var(--dark-text);
   padding: 34px 36px;
   font-size: 13px;
 }
 
-/* Section headings on the right */
+/* Section headers on right side */
 .resume-right > h4 {
   font-size: 16px;
   letter-spacing: .6px;
@@ -520,25 +613,27 @@ html, body {
   margin-top: 30px;
 }
 
+/* Blue bar under headers on the right side */
 .resume-right > h4::after {
   content: "";
   display: block;
   height: 3px;
   width: 48px;
-  background: #42a5ff;               /* accent line under heading */
+  background: #42a5ff;
   border-radius: 3px;
   margin-top: 6px;
 }
 
-/* Paragraph spacing */
+/* Paragraph spacing in the profile  */
 .resume-row-profile p { 
-  margin: 0 0 12px; line-height: 1.7; 
+  margin: 0 0 12px;
+  line-height: 1.7; 
 }
 
-/* Experience rows (simple two-line blocks) */
+/* Work experience rows layout */
 .resume-row-experience > div {
   display: grid;
-  grid-template-columns: 180px 1fr;   /* dates/company | role/desc */
+  grid-template-columns: 180px 1fr; 
   gap: 16px;
   padding: 10px 0;
   border-bottom: 1px solid rgba(0,0,0,0.08);
@@ -549,18 +644,20 @@ html, body {
 }
 
 .resume-row-experience span { 
-  display: block; line-height: 1.5; 
+  display: block;
+  line-height: 1.5; 
 }
 
-/* Skills: aligned like a table */
+/* Skills list on resume right side */
 .resume-row-skill .skill {
   display: grid;
-  grid-template-columns: 190px 1fr;   /* label column fixed */
+  grid-template-columns: 190px 1fr;  
   align-items: center;
   gap: 14px;
   margin-bottom: 12px;
 }
 
+/* Skill name text */
 .resume-row-skill .skill-name {
   font-size: 14px;
   white-space: nowrap;
@@ -568,15 +665,16 @@ html, body {
   color: var(--dark-text);
 }
 
-/* Track + blue progress (non-gradient, like screenshot) */
+/* Grey bar behind the colourful progress bar */
 .resume-row-skill .bar {
   width: 100%;
   height: 8px;
-  background: #d7e3f3;               /* pale track */
+  background: #d7e3f3;
   border-radius: 10px;
   overflow: hidden;
 }
 
+/* The colourful moving progress bar */
 .resume-row-skill .progress {
   height: 100%;
   background: linear-gradient(90deg, #9b5de5, #f15bb5, #f9c74f, #f15bb5);
@@ -585,7 +683,7 @@ html, body {
   border-radius: 10px;
 }
 
-/* Interest pills */
+/* Hobbies / interests pill styles */
 .resume-row-interest > div {
   display: flex;
   flex-wrap: wrap;
@@ -597,22 +695,222 @@ html, body {
   font-size: 13px;
   padding: 6px 12px;
   border-radius: 999px;
-  background: #d7e3f3;
-  color: #0d1b2a;
+  background: var(--dark-highlight-panel);
+  color: var(--dark-bg);
 }
 
+/* Portfolio Page Styles */
 .section-heading { 
   margin-top: 36px; 
 }
 
+/* Grid for cards (videos, projects, etc.) */
 .grid { 
   display:grid; 
   gap:16px; 
   grid-template-columns: repeat(auto-fill, minmax(260px,1fr)); 
-  align-items: stretch;              /* stretch cards to full cell height */
-  grid-auto-rows: 1fr;               /* rows take equal height */
+  align-items: stretch;    
+  grid-auto-rows: 1fr;      
 }
 
+/* Detail Page */
+.detail-wrap {
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.detail-topbar {
+  margin-bottom: 16px;
+}
+
+/* Back to Portfolio link */
+.back-link {
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 10px;
+  text-decoration: none;
+  border: 1px solid var(--dark-highlight-panel);
+  opacity: 0.9;
+}
+
+/* Back link colours in light theme */
+.app-shell.light .back-link {
+  color: var(--light-text);
+  border-color: var(--dark-highlight-panel);
+}
+
+/* Back link colours in dark theme */
+.app-shell.dark .back-link {
+  color: var(--dark-text);
+  border-color: var(--dark-text);
+}
+
+/* Card around the details info */
+.detail-card {
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.2);
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+/* Thumbnail for YouTube preview */
+.thumb-wrap { 
+  display: block; 
+  border-radius: 12px; 
+  overflow: hidden; 
+}
+
+.card-thumb {
+  width: 100%;
+  aspect-ratio: 16 / 9;   
+  object-fit: cover;
+  display: block;
+  transition: transform .25s ease;
+}
+
+.thumb-wrap:hover .card-thumb { 
+  transform: scale(1.02); 
+}
+
+/* Light theme for detail card */
+.app-shell.light .detail-card {
+  background: var(--dark-panel);
+  color: var(--dark-text);
+}
+
+/* Dark theme for detail card */
+.app-shell.dark .detail-card {
+  background: var(--light-panel);
+  color: var(--light-text);
+}
+
+/* Top section of the detail card */
+.detail-header {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+/* Title text */
+.detail-title {
+  margin: 0;
+  font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+  letter-spacing: 0.3px;
+}
+
+/* Little badges for language, stars, forks, etc. */
+.detail-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .3px;
+  border: 1px solid rgba(0,0,0,0.08);
+  background: rgba(0,0,0,0.06);
+}
+
+/* Badge style for light theme */
+.app-shell.light .badge {
+  color: var(--dark-text);
+  border-color: rgba(0,0,0,0.08);
+  background: rgba(0,0,0,0.06);
+}
+
+/* Badge style for dark theme */
+.app-shell.dark .badge {
+  color: var(--light-text);
+  border-color: rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.06);
+}
+
+/* "Last update:" row */
+.detail-sub .stat {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.detail-body {
+  margin-top: 8px;
+  margin-bottom: 18px;
+}
+
+.detail-desc {
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Buttons row under description */
+.detail-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+
+/* Outline-style button for 2nd link */
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--dark-highlight-panel);
+  color: inherit;
+}
+
+/* Skeleton loading box for when data is still loading */
+.skeleton-card {
+  height: 220px;
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Light theme skeleton colour */
+.app-shell.light .skeleton-card { 
+  background: #dfe7f3; 
+}
+
+/* Dark theme skeleton colour */
+.app-shell.dark .skeleton-card { 
+  background: #1a2330; 
+}
+
+/* Shimmer animation on loading skeleton */
+.skeleton-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  animation: shimmer 1.6s infinite;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,0.25),
+    transparent
+  );
+}
+
+@keyframes shimmer { 
+  100% { transform: translateX(100%); } 
+}
+
+/* Responsive (Tablet / Phone) */
+
+/* Styles for tablets and small laptops */
+@media (max-width: 720px) {
+  .detail-card { padding: 22px; }
+  .detail-actions { justify-content: center; }
+  .detail-title { text-align: center; }
+  .detail-badges, .detail-sub { justify-content: center; }
+}
+
+/* Portfolio card style */
 .card { 
   background: var(--light-highlight-panel); 
   border:4px solid var(--dark-highlight-panel); 
@@ -621,9 +919,21 @@ html, body {
   display:flex; 
   flex-direction:column; 
   gap:8px; 
-  height: 100%;                      /* fill the grid cell */
+  height: 100%;            
 }
 
+/* Title inside card */
+.card h3{
+  font-size: 16px;
+  text-decoration: underline;
+}
+
+/* Description text and buttons inside card */
+.card p, .card button{
+  font-size: 12px;
+}
+
+/* Styled card title */
 .card-title { 
   margin:0; 
   font-size: 18px; 
@@ -632,58 +942,92 @@ html, body {
   text-align: center;
 }
 
+/* Card description text */
 .card-desc { 
   color: var(--light-text); 
   text-align: center;
-  display: -webkit-box;              /* clamp to 3 lines */
-  -webkit-box-orient: vertical;
-  line-clamp: 3;
-  overflow: hidden;
-  min-height: 3.6em;                 /* ~3 lines of text */
+  margin: 0;
+  line-height: 1.5;
 }
 
-/* action area pinned to bottom + centered */
+/* Limit text to 3 lines if collapsed */
+.clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Show full text when expanded */
+.expanded {
+  display: block;
+  overflow: visible;
+}
+
+/* see more... button in cards */
+.see-more {
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: underline;
+  font: inherit;
+  color: var(--light-text);
+  align-self: center;   
+  margin-top: 4px;
+}
+
+.dark .see-more { color: var(--dark-text); }
+
+/* Buttons row at bottom of card */
 .card-actions{
-  margin-top: auto;                  /* pushes this block to the bottom */
+  margin-top: auto;                 
   display: flex;
-  justify-content: center;           /* center buttons horizontally */
+  justify-content: center;
   align-items: center;
   gap: 10px;
 }
 
+/* Main button style */
 .btn { 
   display: inline-block;
   background: var(--dark-highlight-panel);
-  color: var(--dark-text);
+  color: var(--light-highlight-panel);
   padding: 8px 12px;
   border-radius: 10px;
   font-weight: 600;
   text-decoration: none;
 }
 
+/* Ghost button style */
 .btn-ghost { 
   background: transparent; 
-  border:1px solid var(--light-resume-panel); 
+  border:1px solid var(--dark-highlight-panel); 
   color: var(--light-text); 
 }
 
+/* Extra space between buttons if there are two */
 .btn + .btn { 
   margin-left:8px; 
 }
 
-.btn:hover{
+/* Hover effect for buttons and back link */
+.btn:hover, .back-link:hover{
   background: var(--dark-highlight-panel);
-  color: var(--light-highlight-panel);
+  color: var(--light-text);
   box-shadow: 0 0 20px var(--dark-highlight-panel);
-  transform: scale(1.05); /* slightly larger on hover*/
+  transform: scale(1.05);
 }
 
+/* Search bar box above portfolio grids */
 .searchbar { 
   display:flex; 
   gap:10px; 
   margin: 10px 0 18px; 
 }
 
+/* Input box in the search bar */
 .searchbar input, .searchbar select { 
   flex:1; 
   background: var(--dark-bg); 
@@ -701,110 +1045,121 @@ html, body {
   margin: 12px 0 20px; 
 }
 
+/* Muted / lighter text helper class */
 .muted { 
   color: var(--dark-resume-panel); 
 }
 
+/* More responsive layout changes at 1024px and below */
 @media (max-width: 1024px) {
     .hero-inner, .about-inner {
-        flex-direction: column; /* stack sections vertically*/
-        gap: 20px; /* reduce space between sections*/
-        padding-inline: 16px; /* reduce side padding*/
+        flex-direction: column;    
+        gap: 20px;
+        padding-inline: 16px;
     }
 
     .container {
-        flex-direction: column; /* stack sections vertically*/
-        padding: 12px 1%; /* top-bottom 12px, left-right 7%*/
+        flex-direction: column;
+        padding: 12px 1%;
     }
 
     .nav-links {
-        gap: 30px; /* reduce space between links*/
+        gap: 30px;
     }
 
     .hero-col h2, .hero-col p {
-        padding: 0; /* reduce side padding*/
+        padding: 0;
         width: 100%;
         max-width: 100%;
         text-align: center;
     }
+
     .hero-col h2 {
-        font-size: 20px; /* reduce heading font size*/
+        font-size: 20px;
     }
 
     .hero-col p {
-        font-size: 14px; /* reduce paragraph font size*/
+        font-size: 14px;
     }
 
     .skills {
-    max-width: 100%;
-    width: 100%;
+      max-width: 100%;
+      width: 100%;
     }
+
+    /* Resume goes from 2 columns to 1 column on smaller screens */
     .resume-inner {
-    grid-template-columns: 1fr;     /* stack columns */
-    border-radius: 12px;
+      grid-template-columns: 1fr;
+      border-radius: 12px;
     }
+
     .resume-left, .resume-right {
       padding: 24px;
     }
+
     .resume-row-skill .skill {
       grid-template-columns: 150px 1fr;
     }
+
     .resume-left {
-    position: static;            /* disable sticky on small screens */
-    align-items: center;         /* center left content */
-    text-align: center;
+      position: static;
+      align-items: center;
+      text-align: center;
     }
 
+    /* Center the sidebar headers and make the blue line centered too */
     .section-header {
       position: relative;
-      text-align: center;           /* centers text and pseudo-element */
+      text-align: center;
     }
     .section-header::after{
       display: block;
       margin: 8px auto 0;
     }
 
+    /* Right side resume headers also centered on mobile */
     .resume-right > h4{
       position: relative;
-      text-align: center;           /* centers text and pseudo-element */
+      text-align: center;
     }
 
     .resume-right > h4::after {
-          display: block;
-          margin: 8px auto 0;
+      display: block;
+      margin: 8px auto 0;
     }
 }
 
+/* Phone layout fixes for very small screens */
 @media (max-width: 600px) {
     .nav-links {
-        display: none; /* hide nav links on small screens*/
+        display: none;  
     }
 
     .search-box {
-        display: none; /* hide search box on small screens*/
+        display: none;  
     }
 
     .container {
-        flex-direction: column; /* stack sections vertically*/
-        padding: 12px 0; /* top-bottom 12px, left-right 7%*/
+        flex-direction: column;
+        padding: 12px 0;
         margin-top: 5px;
         margin-bottom: 5px;
-        
     }
     
     .hero-col {
-        padding: 0 0px; /* reduce side padding*/
+        padding: 0 0px;
     }
+
     .hero-col h2 {
-        font-size: 18px; /* reduce heading font size*/
+        font-size: 18px;
     }
 
     .hero-col p {
-        font-size: 12px; /* reduce paragraph font size*/
+        font-size: 12px;
     }
 
     .hero-col h2, .hero-col p {
-        padding: 0; /* reduce side padding*/
+        padding: 0;
         width: 100%;
         max-width: 100%;
         text-align: center;
