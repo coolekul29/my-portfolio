@@ -209,7 +209,10 @@ html, body {
 }
 
 /* Dark theme footer text colour swap */
-.dark .footer {
+.dark .footer span, 
+.dark .footer-link, 
+.dark .footer a, 
+.dark .footer h4 {
     color: var(--dark-text);
 }
 

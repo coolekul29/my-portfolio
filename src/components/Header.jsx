@@ -7,8 +7,6 @@ import { NavLink } from "react-router-dom";
 // Import image files for light and dark themes
 import logo_light from "../assets/logo_light.png";
 import logo_dark from "../assets/logo_dark.png";
-import search_icon_light from "../assets/search-w.png";
-import search_icon_dark from "../assets/search-b.png";
 import toggle_icon_light from "../assets/night.png";
 import toggle_icon_dark from "../assets/day.png";
 
